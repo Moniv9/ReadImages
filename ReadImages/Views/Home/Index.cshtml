@@ -1,0 +1,54 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <style type="text/css">
+        body {
+            margin: 50px 30% 0 30%;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <form action="/home/index" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" />
+            <button type="submit" value="Upload">Upload</button>
+        </form>
+    </div>
+    <table class="table" style="width: 400px;">
+        <thead>
+            <tr>
+                <th>Colors
+                </th>
+                <th>Red
+                </th>
+                <th>Green
+                </th>
+                <th>Blue
+                </th>
+            </tr>
+        </thead>
+        @if (Model.Count > 0) {
+            foreach (var n in Model) {
+            <tr>
+                @if (n.Name != "0") {
+                    <td>
+                        <div style="background-color: #@n.Name.Substring( 2 , n.Name.Length - 2 ) ; width:100px; height:100px; "></div>
+                    </td>
+                    <td>@n.R</td>
+                    <td>@n.G</td>
+                    <td>@n.B</td>
+                }
+            </tr>                   
+            }
+        }
+    </table>
+</body>
+</html>
