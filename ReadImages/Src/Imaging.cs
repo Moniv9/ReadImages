@@ -71,7 +71,6 @@ namespace ReadImages
           private Boolean IsGrayScale( ref Color color )
           {
                return color.G == color.B && color.G == color.R;
-
           }
 
           private Boolean IsNearGrayScale( ref Color color )
